@@ -128,9 +128,25 @@ export function classifyStatus(code: number): StatusCategory {
  * nombre y valor. Recuerda `.trim()` para quitar espacios sobrantes.
  */
 export function parseHeaders(text: string): Headers {
-  // TODO: tu implementación aquí
-  throw new Error("Not implemented");
+ const headers: Headers = {};
+  const lines = text.split("\n");
+
+  for (const line of lines) {
+    const trimmedLine = line.trim();
+    if (trimmedLine === "" || !trimmedLine.includes(":")) {
+      continue;
+    }
+
+    const separatorIndex = trimmedLine.indexOf(":");
+    const name = trimmedLine.slice(0, separatorIndex).trim();
+    const value = trimmedLine.slice(separatorIndex + 1).trim();
+
+    headers[name] = value;
+  }
+
+  return headers;
 }
+
 
 /**
  * TODO: Combina las funciones anteriores en un resumen legible.
@@ -147,12 +163,25 @@ export function parseHeaders(text: string): Headers {
  *     • Authorization: Bearer abc
  */
 export function summarizeRequest(
-  url: string,
+   url: string,
   status: number,
   headersText: string,
 ): string {
-  // TODO: tu implementación aquí
-  throw new Error("Not implemented");
+  const category = classifyStatus(status);
+  const headers = parseHeaders(headersText);
+
+  const headerLines = Object.entries(headers)
+    .map(([name, value]) => `  • ${name}: ${value}`)
+    .join("\n");
+
+  return [
+    "Resumen de la petición",
+    "──────────────────────",
+    `URL:     ${url}`,
+    `Status:  ${status} (${category})`,
+    "Headers:",
+    headerLines,
+  ].join("\n");
 }
 
 // ---------------------------------------------------------------------------
