@@ -3,30 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CineHub: reseñas y novedades de películas y series.">
+  <meta name="author" content="Julio Sandoval">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <title>Mi Sitio — Inicio</title>
-  <!-- TODO: agrega meta description, autor, favicon -->
 </head>
 <body>
 
-  <!-- TODO: header con navegacion a las otras 3 paginas -->
   <header>
     <h1>Mi Sitio</h1>
-    <!-- TODO: <nav> con enlaces a pagina1.html, pagina2.html, pagina3.html -->
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="pagina1.html">Películas</a></li>
+        <li><a href="pagina2.html">Series</a></li>
+        <li><a href="pagina3.html">Contacto</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
     <article>
       <h2>Bienvenido</h2>
 
-      <!-- TODO: usa <figure> + <figcaption> para una imagen con alt y loading="lazy" -->
-      <img src="https://via.placeholder.com/800x400"
-           alt="Imagen de bienvenida"
-           width="800" height="400"
-           loading="lazy">
+      <figure>
+        <img src="https://via.placeholder.com/800x400"
+             alt="Imagen de bienvenida"
+             width="800" height="400"
+             loading="lazy">
+        <figcaption>Descubre reseñas de tus películas y series favoritas.</figcaption>
+      </figure>
 
       <p>Parrafo de introduccion. Lorem ipsum dolor sit amet.</p>
 
-      <!-- TODO: usa <dialog> + un boton con command/commandfor (Invoker Commands API) -->
       <dialog id="bienvenida">
         <h3>Hola!</h3>
         <p>Esto es un dialog modal nativo.</p>
@@ -38,14 +47,12 @@
         Abrir dialog
       </button>
 
-      <!-- TODO: usa popover para un menu o tooltip -->
       <button popovertarget="menu-ayuda">?</button>
       <div id="menu-ayuda" popover>
         <h4>Ayuda</h4>
         <p>Contenido del popover...</p>
       </div>
 
-      <!-- TODO: formulario con al menos 3 inputs (text, email, etc.) -->
       <form action="#" method="POST">
         <label for="nombre">Nombre:</label>
         <input id="nombre" type="text" name="nombre" required minlength="3">
@@ -60,7 +67,14 @@
       </form>
     </article>
 
-    <!-- TODO: usa <aside> para contenido lateral -->
+    <aside>
+      <h3>Recomendado</h3>
+      <p>Otras reseñas que podrían interesarte.</p>
+      <ul>
+        <li><a href="pagina1.html">Ver películas</a></li>
+        <li><a href="pagina2.html">Ver series</a></li>
+      </ul>
+    </aside>
   </main>
 
   <footer>
