@@ -24,9 +24,46 @@
 
   <main>
     <article>
-      <h2>Contacto</h2>
-      <p>¿Tenés sugerencias de películas o series? Escribinos.</p>
-    </article>
+  <h2>Contacto</h2>
+  <p>¿Tenés sugerencias de películas o series? Escribinos.</p>
+
+  <h3>Otras formas de contacto</h3>
+  <ul>
+    <li>Email: contacto@cinehub.com</li>
+    <li>Instagram: @cinehub</li>
+    <li>Horario de respuesta: lunes a viernes</li>
+  </ul>
+
+  <h3>Formulario de contacto</h3>
+  <form action="#" method="POST">
+    <div>
+      <label for="nombre">Nombre:</label>
+      <input id="nombre" type="text" name="nombre" required minlength="3" placeholder="Tu nombre">
+    </div>
+
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" type="email" name="email" required placeholder="tu@email.com">
+    </div>
+
+    <div>
+      <label for="asunto">Asunto:</label>
+      <select id="asunto" name="asunto" required>
+        <option value="">Elegí una opción</option>
+        <option value="sugerencia">Sugerencia de película/serie</option>
+        <option value="error">Reportar un error</option>
+        <option value="otro">Otro</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" rows="4" required minlength="10"></textarea>
+    </div>
+
+    <button type="submit">Enviar</button>
+  </form>
+</article>
   </main>
 
   <footer>
