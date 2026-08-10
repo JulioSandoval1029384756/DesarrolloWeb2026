@@ -98,3 +98,24 @@ h2 {
   height: 1.1rem;
   cursor: pointer;
 }
+
+.galeria {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .galeria {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.btn-comprar {
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-comprar:hover {
+  background-color: #1557b0;
+  transform: translateY(-2px);
+}
