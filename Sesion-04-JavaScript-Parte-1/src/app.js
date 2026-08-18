@@ -93,17 +93,19 @@ export function filtrarTareas(filtro) {
  * Persiste el array `tareas` en localStorage como JSON.
  */
 export function guardar() {
-    // TODO: usar localStorage.setItem con la clave STORAGE_KEY.
-    // El valor debe ser JSON.stringify(tareas).
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(tareas));
 }
 
 /**
  * Carga las tareas desde localStorage. Si no hay nada, deja el array vacío.
  */
 export function cargar() {
-    // TODO: leer localStorage con STORAGE_KEY.
-    // Si existe, hacer JSON.parse y asignarlo a `tareas`.
-    // Si no existe o falla, `tareas` se queda como [].
+     try {
+        const guardado = localStorage.getItem(STORAGE_KEY);
+        tareas = guardado ? JSON.parse(guardado) : [];
+    } catch {
+        tareas = [];
+    }
 }
 
 // =====================================================
