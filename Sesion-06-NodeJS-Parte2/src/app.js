@@ -96,7 +96,7 @@ export async function leerLineas(ruta) {
  * @returns {string}
  */
 export function rutaAbsoluta(rutaRelativa) {
-    throw new Error('Not implemented: rutaAbsoluta');
+    return join(__dirname, rutaRelativa);
 }
 
 /**
@@ -108,5 +108,24 @@ export function rutaAbsoluta(rutaRelativa) {
  * @returns {Record<string, string>}
  */
 export function parsearEnv(contenido) {
-    throw new Error('Not implemented: parsearEnv');
+    const resultado = {};
+    const lineas = contenido.split('\n');
+
+    for (const linea of lineas) {
+        const trimmed = linea.trim();
+        if (trimmed === '' || trimmed.startsWith('#')) {
+            continue;
+        }
+
+        const idx = trimmed.indexOf('=');
+        if (idx === -1) {
+            continue;
+        }
+
+        const clave = trimmed.slice(0, idx).trim().toUpperCase();
+        const valor = trimmed.slice(idx + 1).trim();
+        resultado[clave] = valor;
+    }
+
+    return resultado;
 }
